@@ -35,9 +35,9 @@ searchBtn.addEventListener('click', function(){
 
 console.log(color.value)
 console.log(brand.value)
-console.log(callFunction.filter(color.value))
+console.log(callFunction.filter(color.value, brand.value))
 
-displayColor.innerHTML = callFunction.filter(color.value)
+displayColor.innerHTML = callFunction.filter(color.value, brand.value)
 
   // if (color.value != ''){
   //
