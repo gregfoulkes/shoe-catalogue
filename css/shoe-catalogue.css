@@ -1,0 +1,159 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
+  font-family: monospace;
+  font-style: normal;
+  font: courier;
+}
+
+
+.container {
+  width: 90%;
+  height: 90%;
+  padding: 16px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.center {
+/* //  text-align: center; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  margin-top: 2rem;
+}
+
+/* heading */
+
+.heading{
+  width: 100%;
+}
+
+/* slectors */
+.selectors{
+
+  padding: 10px;
+  float: left;
+  width: 40%;
+
+}
+
+.brandSelect{
+
+  width:100%;
+}
+
+.colorSelect{
+
+  width:100%;
+
+}
+
+.sizeSelect{
+
+  width:100%;
+
+}
+
+/* add stuff */
+
+.addBox{
+  /* float: left; */
+  width:  40%;
+  padding: 10px;
+    /* margin: 0 auto; */
+
+}
+
+.selectors input{
+  width: 100%;
+  /* float: left; */
+}
+
+/* Display Stuff */
+
+.displayResult{
+
+width: 40%;
+margin:10px;
+padding: 20px;
+height:40%;
+float: left;
+/* border: 1px solid black; */
+/* border-color: black */
+}
+
+.displayResult span{
+  float: left;
+
+  width: 20%;
+
+
+}
+
+.displayFilter{
+  float: left;
+  width: 70%;
+  height: 10%;
+  border: 1px solid black;
+}
+
+.displayQty{
+  float: left;
+
+  width: 70%;
+  height: 10%;
+  border: 1px solid black;
+}
+
+.displaySize{
+  float: left;
+
+  width: 70%;
+  height: 10%;
+  border: 1px solid black;
+
+
+}
+
+.displayColor{
+  float: left;
+
+  width: 70%;
+  height: 10%;
+  border: 1px solid black;
+
+}
+
+@media (max-width: 700px) {
+
+  .day {
+    width:40%;
+
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  /* .handleBars{
+    width: 90%;
+    padding:20px;
+    float: left;
+  }
+
+  .static{
+    width: 90%;
+    padding:20px;
+    float: left;
+  } */
+
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/shoe-catalogue.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
+
+  <script type="text/x-template" class='displayFilterTemplate'> </script>
+
+  <li class = '{{color}} {{brand}} {{size}}'> {{color}} {{brand}} {{size}}</li>
+
+  <title>Shoe-Catalogue</title>
+</head>
+
+<body>
+
+  <div class="container center">
+
+    <div class="heading row">
+
+      <h1>Shoe Catalogue</h1>
+
+    </div>
+
+    <div class="selectors row">
+
+      <select class="brandSelect row" name="">
+
+          <option class="brand" value="All">All</option>
+          <option class="brand" value="Adidas">Adidas</option>
+          <option class="brand" value="Nike">Nike</option>
+          <option class="brand" value="New Balance">New Balance</option>
+          <option class="brand" value="All Stars">All Stars</option>
+          <option class="brand" value="Lacoste">LaCoste</option>
+
+        </select>
+
+      <select class="colorSelect row" name="">
+
+            <option class="color" value="All">All</option>
+            <option class="color" value="blue">Blue</option>
+            <option class="color" value="red">Red</option>
+            <option class="color" value="black">Black</option>
+            <option class="color" value="white">White</option>
+            <option class="color" value="green">Green</option>
+
+          </select>
+
+      <select class="sizeSelect row" name="">
+
+              <option class="size" value="All">All</option>
+              <option class="size" value="4">Size 4</option>
+              <option class="size" value="5">Size 5</option>
+              <option class="size" value="6">Size 6</option>
+              <option class="size" value="7">Size 7</option>
+              <option class="size" value="8">Size 8</option>
+              <option class="size" value="9">Size 9</option>
+              <option class="size" value="10">Size 10</option>
+              <option class="size" value="11">Size 11</option>
+              <option class="size" value="12">Size 12</option>
+
+            </select>
+
+            <div class="addBox ">
+              <span class = "row">Brand:</span>
+
+              <input class="getBrand row" type="text" name="" value="">
+              <span class = "row">Color:</span>
+
+              <input class="getColor row" type="text" name="" value="">
+              <span class = "row">Size:</span>
+
+              <input class="getSize row" type="text" name="" value="">
+              <span class = "row">Qty:</span>
+
+              <input class="getQty row" type="text" name="" value="">
+            </div>
+            <button class = 'addButton row' type="button" name="button">Add</button>
+    </div>
+
+    <div class="displayResult row">
+
+      <span class = "row">Brand:</span>
+      <div class="displayFilter row">
+
+      </div>
+      <span class = "row">Size:</span>
+      <div class="displaySize row">
+
+      </div>
+      <span class = "row">Color:</span>
+      <div class="displayColor row">
+
+      </div>
+      <span class = "row">Qty:</span>
+      <div class="displayQty row">
+
+      </div>
+
+      <button class = 'filterButton row' type="button" name="button">Search</button>
+
+    </div>
+
+    <!-- <div class="addBox ">
+      <input class="getBrand row" type="text" name="" value="">
+      <input class="getColor row" type="text" name="" value="">
+      <input class="getSize row" type="text" name="" value="">
+      <input class="getQty row" type="text" name="" value="">
+    </div> -->
+
+
+
+
+  </div>
+
+
+
+</body>
+
+<script src="js/shoe-catalogue.js"></script>
+
+<script src="js/shoe-catalogue-dom.js"></script>
+
+</html>
