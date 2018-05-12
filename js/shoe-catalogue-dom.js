@@ -33,9 +33,11 @@ var callFunction = ShoeCatalogueFunction()
 
 searchBtn.addEventListener('click', function(){
 
-console.log(color.value)
-console.log(brand.value)
-console.log(callFunction.filter(color.value, brand.value))
+//console.log(color.value)
+//console.log(brand.value)
+//console.log(callFunction.filter(color.value, brand.value))
+console.log(callFunction.otherFilter(color.value, brand.value))
+
 
 displayColor.innerHTML = callFunction.filter(color.value, brand.value)
 

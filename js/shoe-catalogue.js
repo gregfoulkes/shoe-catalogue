@@ -36,7 +36,7 @@ function ShoeCatalogueFunction(){
   ];
 
   function shoeCatalogueOtherFilter(color, brand){
-    // var params = {};
+     var filteredShoes = [];
     // if (color){
     //   params['color'] = color
     // }
@@ -45,30 +45,33 @@ function ShoeCatalogueFunction(){
     //   params['brand'] = brand
     //}
     //var results = []
-  //
+
+  if (color != undefined || brand != undefined){
     if(color){
-      params[color] = _.filter(shoes, {color:color})
+      filteredShoes = _.filter(shoes, {color:color})
     }
 
-    if(brand){
-      params[brand] = _.filter(shoes, {brand:brand})
+    else if(brand){
+      filteredShoes = _.filter(shoes, {brand:brand})
     }
 
-  //   var filterFunc = _.filter(params, {color:color},{brand:brand} )
-  //   return filterFunc
-  //   console.log(params)
-  // }
-    // if (brand){
-    //   params['brand'] = color
-    // }
-    //
     // if(size){
-    //   params['size'] = color
+    //   filteredShoes = _.filter(shoes, {size:size})
+    //
     // }
-    //
-    // // _.filter(shoes, {color : 'black'})
-    //
-    // _.filter(shoes, {'color': color}, 'brand': )
+
+    else if(brand && color && size){
+      filteredShoes = _.filter(shoes, {brand:brand, color:color})
+    }
+
+  }
+
+
+    // var filterFunc = _.filter(filteredShoes, {color:color, brand:brand} )
+    // return filterFunc
+
+
+    return filteredShoes
   }
 
   function shoeCatalogueFunctionFilter(color, brand) {
