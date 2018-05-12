@@ -15,6 +15,7 @@ var displayColor = document.querySelector('.displayColor')
 var getBrand = document.querySelector('.getBrand');
 var getColor = document.querySelector('.getColor');
 var getSize = document.querySelector('.getSize');
+var getPrice = document.querySelector('.getPrice')
 var getQty = document.querySelector('.getQty');
 
 //buttons
@@ -33,24 +34,14 @@ var callFunction = ShoeCatalogueFunction()
 
 searchBtn.addEventListener('click', function(){
 
-//console.log(color.value)
-//console.log(brand.value)
-//console.log(callFunction.filter(color.value, brand.value))
-console.log(callFunction.otherFilter(color.value, brand.value))
+var x = callFunction.otherFilter(color.value, brand.value)
+console.log(x)
 
+displayColor.innerHTML = callFunction.otherFilter(color.value, brand.value)
 
-displayColor.innerHTML = callFunction.filter(color.value, brand.value)
-
-  // if (color.value != ''){
-  //
-  // }
-
-  // insertRegDataElem.innerHTML = shoeFilterTemplate({
-  //   color:  callFunction.filter(color)
-  //
-  // });
 });
 
 addBtn.addEventListener('click', function(){
-callFunction.add('red','Puma',10)
+//console.log(callFunction.add(getColor.value, getBrand.value, getSize.value, getPrice.value, getQty.value))
+console.log(callFunction.add('orange', 'Puma', 7, 300, 1))
 });

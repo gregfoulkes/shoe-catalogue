@@ -36,7 +36,10 @@ function ShoeCatalogueFunction(){
   ];
 
   function shoeCatalogueOtherFilter(color, brand){
-     var filteredShoes = [];
+
+    //var filterFunc = function(shoes){ return true; }
+
+    var filteredShoes = [];
     // if (color){
     //   params['color'] = color
     // }
@@ -46,33 +49,25 @@ function ShoeCatalogueFunction(){
     //}
     //var results = []
 
-  if (color != undefined || brand != undefined){
-    if(color){
-      filteredShoes = _.filter(shoes, {color:color})
+//  if (color || brand){
+
+    if(color ){
+   filteredShoes = _.filter(shoes, {color:color})
+     if(brand ){
+       filteredShoes = _.filter(shoes, {brand:brand})
+       if(brand && color){
+
+         filteredShoes = _.filter(shoes,{brand:brand, color:color})
+       }
+      }
     }
-
-    else if(brand){
-      filteredShoes = _.filter(shoes, {brand:brand})
-    }
-
-    // if(size){
-    //   filteredShoes = _.filter(shoes, {size:size})
-    //
-    // }
-
-    else if(brand && color && size){
-      filteredShoes = _.filter(shoes, {brand:brand, color:color})
-    }
-
-  }
-
-
-    // var filterFunc = _.filter(filteredShoes, {color:color, brand:brand} )
-    // return filterFunc
+  //}
 
 
     return filteredShoes
   }
+
+
 
   function shoeCatalogueFunctionFilter(color, brand) {
 
@@ -98,21 +93,40 @@ function ShoeCatalogueFunction(){
 
     var filteredShoes = shoes.filter(filterFunc);
 
-    console.log(filteredShoes)
+    //console.log(filteredShoes)
 
     return filteredShoes
 
   }
 
-function addShoeToList(color, brand, size){
+function addShoeToList(color, brand, size, price, in_stock ){
   var newShoeList = {
   color: color,
   brand: brand,
-  size: size
+  size: parseInt(size),
+  price:parseInt(price),
+  in_stock: parseInt(in_stock)
+}
+var exists = false;
+if(color === shoes.color && brand === shoes.brand && size === shoes.size && price === shoes.price){
+
+  //price == shoe.price
+  newShoeList = {
+  // color: color,
+  // brand: brand,
+  // price: parseInt(price),
+  // size: size,
+  in_stock: in_stock++
+}
+exists = true;
+
+} else{
+    shoes.push(newShoeList)
 }
 
-  return shoes.push(newShoeList)
-  console.log(filteredShoes)
+  //console.log(shoes)
+  return shoes
+  //console.log(shoes)
 
 }
 
