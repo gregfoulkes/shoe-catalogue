@@ -34,10 +34,31 @@ var callFunction = ShoeCatalogueFunction()
 
 searchBtn.addEventListener('click', function(){
 
-var x = callFunction.otherFilter(color.value, brand.value)
-console.log(x)
+  var params = {
+    color: color.value,
+    brand: brand.value,
+    size: size.value
+  }
 
-displayColor.innerHTML = callFunction.otherFilter(color.value, brand.value)
+if(color.value == ''){
+  delete params.color
+}
+
+if(brand.value == ''){
+  delete params.brand
+}
+
+if(size.value == ''){
+  delete params.size
+}
+
+
+var x = callFunction.filter(params)
+console.log(x)
+console.log(params)
+
+
+displayColor.innerHTML = callFunction.filter(color.value, brand.value)
 
 });
 
