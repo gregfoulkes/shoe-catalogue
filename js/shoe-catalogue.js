@@ -100,6 +100,18 @@ function ShoeCatalogueFunction(){
   }
 
 function addShoeToList(color, brand, size, price, in_stock ){
+
+
+var exists = false;
+for(var i = 0; i < shoes.length; i++){
+  var shoe = shoes[i]
+  if(color === shoe.color && brand === shoe.brand && size === shoe.size && price === shoe.price){
+    shoe.in_stock++
+    exists = true;
+  }
+}
+
+if (!exists){
   var newShoeList = {
   color: color,
   brand: brand,
@@ -107,26 +119,10 @@ function addShoeToList(color, brand, size, price, in_stock ){
   price:parseInt(price),
   in_stock: parseInt(in_stock)
 }
-var exists = false;
-if(color === shoes.color && brand === shoes.brand && size === shoes.size && price === shoes.price){
-
-  //price == shoe.price
-  newShoeList = {
-  // color: color,
-  // brand: brand,
-  // price: parseInt(price),
-  // size: size,
-  in_stock: in_stock++
-}
-exists = true;
-
-} else{
     shoes.push(newShoeList)
 }
 
-  //console.log(shoes)
   return shoes
-  //console.log(shoes)
 
 }
 
