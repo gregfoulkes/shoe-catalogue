@@ -210,3 +210,56 @@ describe('Add to list function for registration numbers', function() {
 
   });
 });
+
+describe('Filter by object function', function(){
+    var callFunction = ShoeCatalogueFunction()
+
+    it('should return list of white shoes', function(){
+
+
+
+    assert.equal(callFunction.objectFilter('white',undefined) [
+
+      {color : 'white', brand : "Nike",price : 350, size:4, in_stock : 7},
+      {color : 'white', brand : "Adidas",price : 275, size:6, in_stock : 6},
+      {color : 'white', brand : "New Balance",price : 320, size:8, in_stock : 3},
+      {color : 'white', brand : "LaCoste",price : 400, size:4, in_stock : 5},
+      {color : 'white', brand : "All Stars",price : 250, size:9, in_stock : 1}
+
+    ]);
+    });
+
+    it('should return list of Adidas ', function(){
+      assert.equal(callFunction.objectFilter(undefined, 'Adidas')[
+
+      {color : 'blue', brand : "Adidas",price : 275, size:6, in_stock : 3},
+      {color : 'red', brand : "Adidas",price : 275, size:4, in_stock : 3},
+      {color : 'green', brand : "Adidas",price : 275, size:4, in_stock : 9},
+      {color : 'black', brand : "Adidas",price : 275, size:4, in_stock : 2},
+      {color : 'white', brand : "Adidas",price : 275, size:6, in_stock : 6}
+    ]);
+    });
+
+    it('should return white nike shoes', function(){
+
+
+
+    assert.equal(callFunction.objectFilter('white', 'Nike', undefined) [
+
+      {color : 'white', brand : "Nike",price : 350, size:4, in_stock : 7}
+
+    ]);
+    });
+
+    it('should return black Adidas size 4', function(){
+
+
+
+    assert.equal(callFunction.objectFilter('black', 'Adidas', 4) [
+
+      {color : 'black', brand : "Adidas",price : 350, size:4, in_stock : 7}
+
+    ]);
+    });
+
+    });

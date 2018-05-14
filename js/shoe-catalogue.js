@@ -35,107 +35,117 @@ function ShoeCatalogueFunction(){
 
   ];
 
-  function shoeCatalogueOtherFilter(color, brand){
+  function shoeCatalogueFilterByObject(color,brand,size){
 
-    //var filterFunc = function(shoes){ return true; }
+    var params = {}
 
-    var filteredShoes = [];
-    // if (color){
-    //   params['color'] = color
-    // }
-    //
-    // if (brand){
-    //   params['brand'] = brand
-    //}
-    //var results = []
+  //  if(color == undefined || brand == undefined){
+  if(color, brand, size){
 
-//  if (color || brand){
+      if(color){
+        params['color'] = color
+        if (brand){
+          params['brand'] = brand
+          if(size){
+            params['size'] = size
+          }
 
-    if(color ){
-   filteredShoes = _.filter(shoes, {color:color})
-     if(brand ){
-       filteredShoes = _.filter(shoes, {brand:brand})
-       if(brand && color){
+        }
 
-         filteredShoes = _.filter(shoes,{brand:brand, color:color})
-       }
+      }
+
+    }
+    return _.filter(shoes,{ color:params.color}, {brand: params.brand}, {size: params.size});
+  }
+
+  function shoeCatalogueOtherFilter(color, brand, size) {
+
+    var filteredShoes = []
+
+    if (color) {
+      filteredShoes = _.filter(shoes, {
+        color: color
+      })
+      if (brand) {
+        filteredShoes = _.filter(shoes, {
+          brand: brand
+        })
+        if (brand && color) {
+
+          filteredShoes = _.filter(shoes, {
+            brand: brand,
+            color: color
+          })
+        }
       }
     }
-  //}
-
 
     return filteredShoes
   }
 
-
-
   function shoeCatalogueFunctionFilter(color, brand) {
 
-    var filterFunc = function(shoe){ return true; }
-
-    if(color && !brand){
-        filterFunc = function(shoe){
-          return shoe.color === color;
-        }
+    var filterFunc = function(shoe) {
+      return true;
     }
 
-
-    else if (!color && brand){
-      filterFunc = function(shoe){
+    if (color && !brand) {
+      filterFunc = function(shoe) {
+        return shoe.color === color;
+      }
+    } else if (!color && brand) {
+      filterFunc = function(shoe) {
         return shoe.brand === brand;
       }
-    }
-    else if (color && brand){
-      filterFunc = function(shoe){
+    } else if (color && brand) {
+      filterFunc = function(shoe) {
         return shoe.color === color && shoe.brand === brand;
       }
     }
 
     var filteredShoes = shoes.filter(filterFunc);
 
-    //console.log(filteredShoes)
-
     return filteredShoes
 
   }
 
-function addShoeToList(color, brand, size, price, in_stock ){
+  function addShoeToList(color, brand, size, price, in_stock) {
 
 
-var exists = false;
-for(var i = 0; i < shoes.length; i++){
-  var shoe = shoes[i]
-  if(color === shoe.color && brand === shoe.brand && size === shoe.size && price === shoe.price){
-    shoe.in_stock++
-    exists = true;
+    var exists = false;
+    for (var i = 0; i < shoes.length; i++) {
+      var shoe = shoes[i]
+      if (color === shoe.color && brand === shoe.brand && size === shoe.size && price === shoe.price) {
+        shoe.in_stock++
+        exists = true;
+      }
+    }
+
+    if (!exists) {
+      var newShoeList = {
+        color: color,
+        brand: brand,
+        size: parseInt(size),
+        price: parseInt(price),
+        in_stock: parseInt(in_stock)
+      }
+      shoes.push(newShoeList)
+    }
+
+    return shoes
+
   }
-}
 
-if (!exists){
-  var newShoeList = {
-  color: color,
-  brand: brand,
-  size: parseInt(size),
-  price:parseInt(price),
-  in_stock: parseInt(in_stock)
-}
-    shoes.push(newShoeList)
-}
-
-  return shoes
-
-}
-
-  return{
+  return {
+    objectFilter: shoeCatalogueFilterByObject,
     filter: shoeCatalogueFunctionFilter,
-    otherFilter:shoeCatalogueOtherFilter,
+    otherFilter: shoeCatalogueOtherFilter,
     add: addShoeToList
   }
 
-}
+  }
 
-// _.filter(shoes, {color : 'black'});
-// console.log(_.filter(shoes, {color : 'black', size : 5}));
+
 
 
 
