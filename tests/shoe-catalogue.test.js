@@ -663,6 +663,63 @@ describe('Add to Shopping Basket function', function() {
       in_stock: 2
     })
 
+    assert.deepEqual(callFunction.returnBasket(), [{
+        color: 'blue',
+        brand: "Adidas",
+        price: 275,
+        size: 6
+      },
+      {
+        color: 'red',
+        brand: "Adidas",
+        price: 275,
+        size: 4
+      },
+      {
+        color: 'black',
+        brand: "Adidas",
+        price: 275,
+        size: 4
+      }
+
+    ])
+
+  });
+
+  it('Should add 4 items, 2 of the same, but only return 3 to shopping basket', function() {
+    var callFunction = ShoeCatalogueFunction()
+
+
+    callFunction.addBasket({
+      color: 'blue',
+      brand: "Adidas",
+      price: 275,
+      size: 6,
+      in_stock: 3
+    })
+    callFunction.addBasket({
+      color: 'red',
+      brand: "Adidas",
+      price: 275,
+      size: 4,
+      in_stock: 3
+    }, )
+    callFunction.addBasket({
+      color: 'black',
+      brand: "Adidas",
+      price: 275,
+      size: 4,
+      in_stock: 2
+    })
+
+    callFunction.addBasket({
+      color: 'black',
+      brand: "Adidas",
+      price: 275,
+      size: 4,
+      in_stock: 2
+    })
+
     // console.log(callFunction.addBasket(params))
 
     assert.deepEqual(callFunction.returnBasket(), [{

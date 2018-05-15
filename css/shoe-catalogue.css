@@ -92,19 +92,19 @@ float: left;
 /* border-color: black */
 }
 
-.displayResult span{
+/* .displayResult span{
   float: left;
 
   width: 20%;
 
 
-}
+} */
 
 .displayFilter{
   float: left;
   width: 70%;
   height: 10%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .displayQty{
@@ -112,7 +112,7 @@ float: left;
 
   width: 70%;
   height: 10%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .displaySize{
@@ -120,7 +120,7 @@ float: left;
 
   width: 70%;
   height: 10%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 
 
 }
@@ -130,7 +130,7 @@ float: left;
 
   width: 70%;
   height: 10%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 
 }
 

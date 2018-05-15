@@ -24,11 +24,11 @@ var searchBtn = document.querySelector('.filterButton')
 
 //template
 
-// var shoeFilterTemplateSource = document.querySelector(".dislpayFilterTemplate").innerHTML;
-//
-// var shoeFilterTemplate = Handlebars.compile(shoeFilterTemplateSource);
-//
-// var insertRegDataElem = document.querySelector(".displayResult");
+var shoeFilterTemplateSource = document.querySelector(".displayFilterTemplate").innerHTML;
+
+var shoeFilterTemplate = Handlebars.compile(shoeFilterTemplateSource);
+
+var insertRegDataElem = document.querySelector(".displayResult");
 
 var callFunction = ShoeCatalogueFunction()
 
@@ -37,7 +37,9 @@ searchBtn.addEventListener('click', function(){
   var params = {
     color: color.value,
     brand: brand.value,
-    size: size.value
+    size: size.value,
+    // price: price.value,
+
   }
 
 if(color.value == ''){
@@ -58,7 +60,15 @@ console.log(x)
 console.log(params)
 
 
-displayColor.innerHTML = callFunction.filter(color.value, brand.value)
+var shoeList = callFunction.filter(params)
+
+insertRegDataElem.innerHTML = shoeFilterTemplate({
+  color:color,
+  brand:brand,
+  size:size,
+  // price: price.value,
+  // in_stock:in_stock
+});
 
 });
 

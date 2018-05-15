@@ -229,12 +229,17 @@ function ShoeCatalogueFunction() {
     }
   shoes.in_stock--
   itExists = true;
+  // console.log(shoes.in_stock)
+
   shoppingBasket.push(addToBasket)
   return shoppingBasket
+
   }
-  // if(exists){
-  // return  alert('Item already in basket')
-  // }
+  if(filterMap.color == color && filterMap.brand == brand && filterMap.size == size){
+    //itExists = true;
+    
+  return  //alert('Item already in basket')
+  }
 }
 
 function returnShoppingBasket(){

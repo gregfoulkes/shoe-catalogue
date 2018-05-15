@@ -11,10 +11,26 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
 
-  <script type="text/x-template" class='displayFilterTemplate'> </script>
+  <script type="text/x-template" class='displayFilterTemplate'>
 
-  <li class = '{{color}} {{brand}} {{size}}'> {{color}} {{brand}} {{size}}</li>
+  <!-- <span class = '{{color}} {{brand}} {{size}}'> {{color}} {{brand}} {{size}} {{price}} {{in_stock}}</span> -->
+  {{#each shoeList}}
 
+  <span class = " dsiplayBrand row {{brand}} ">{{brand}}:</span>
+  <!-- <div class="{{brand}} row">
+
+  </div> -->
+  <span class = " displaySize row {{size}}">{{size}}:</span>
+  <!-- <div class="displaySize row">
+
+  </div> -->
+  <span class = "  displayColor row {{color}}">{{color}}:</span>
+
+  <span class = " displaySize row {{price}}">{{price}}:</span>
+
+  <span class = " displayQty row {{in_stock}}">{{in_stock}}:</span>
+  {{/each}}
+ </script>
   <title>Shoe-Catalogue</title>
 </head>
 
@@ -91,26 +107,26 @@
 
     <div class="displayResult row">
 
-      <span class = "row">Brand:</span>
-      <div class="displayFilter row">
+      <span class = " dsiplayBrand row {{brand}} ">{{brand}}:</span>
+      <!-- <div class="{{brand}} row">
 
-      </div>
-      <span class = "row">Size:</span>
-      <div class="displaySize row">
+      </div> -->
+      <span class = " displaySize row {{size}}">{{size}}:</span>
+      <!-- <div class="displaySize row">
 
-      </div>
-      <span class = "row">Color:</span>
-      <div class="displayColor row">
+      </div> -->
+      <span class = "  displayColor row {{color}}">{{color}}:</span>
+      <!-- <div class="displayColor row">
 
-      </div>
-      <span class = "row">Qty:</span>
-      <div class="displayQty row">
+      </div> -->
+      <span class = " displayQty row {{in_stock}}">{{in_stock}}:</span>
+      <!-- <div class="displayQty row">
 
-      </div>
+      </div> -->
 
-      <button class = 'filterButton row' type="button" name="button">Search</button>
 
     </div>
+    <button class = 'filterButton row' type="button" name="button">Search</button>
 
     <!-- <div class="addBox ">
       <input class="getBrand row" type="text" name="" value="">
