@@ -13,131 +13,122 @@
 
   <script type="text/x-template" class='displayFilterTemplate'>
 
-  <!-- <span class = '{{color}} {{brand}} {{size}}'> {{color}} {{brand}} {{size}} {{price}} {{in_stock}}</span> -->
-  {{#each shoeList}}
+    {{#each shoeList}}
+    <div class="displayBasket">
 
-  <span class = " dsiplayBrand row {{brand}} ">{{brand}}:</span>
-  <!-- <div class="{{brand}} row">
+      <table>
+        <tr><td><strong>Brand:</strong></td><td>{{brand}}</td></tr>
+        <tr><td><strong>Size:</strong></td><td>{{size}}</td></tr>
+        <tr><td><strong>Color:</strong></td><td>{{color}}</td></tr>
+        <tr><td><strong>Price:</strong></td><td> {{price}}</td></tr>
+        <tr><td><strong>Qty:</strong></td><td>{{in_stock}}</td></tr>
+        <tr>
+        <td></td><td><button style ='float: right' class = 'addToCartBtn' onclick = 'getId{{id}}'>Add to Cart</button></td>
+        </tr>
 
-  </div> -->
-  <span class = " displaySize row {{size}}">{{size}}:</span>
-  <!-- <div class="displaySize row">
 
-  </div> -->
-  <span class = "  displayColor row {{color}}">{{color}}:</span>
+      </table>
+    </div>
 
-  <span class = " displaySize row {{price}}">{{price}}:</span>
+   {{/each}}
 
-  <span class = " displayQty row {{in_stock}}">{{in_stock}}:</span>
-  {{/each}}
- </script>
+  </script>
+<strong></strong>
   <title>Shoe-Catalogue</title>
 </head>
-
+<td></td>
 <body>
+<li></li>
+  <div class="container">
 
-  <div class="container center">
 
-    <div class="heading row">
-
+    <div class="heading row center">
       <h1>Shoe Catalogue</h1>
+      <div class="cart">
+
+      </div>
+    </div>
+
+        <div class="addBox  row">
+
+      <div class="">
+        <span class="">Brand:</span>
+        <input class="getBrand " type="text" name="" value="">
+      </div>
+
+      <div class="">
+        <span class="">Color:</span>
+        <input class=" getColor" type="text" name="" value="">
+      </div>
+
+      <div class="">
+        <span class="">Size:</span>
+        <input class="getSize" type="text" name="" value="">
+      </div>
+
+      <div class="">
+        <span class="">Price:</span>
+        <input class="getPrice" type="text" name="" value="">
+
+      </div>
+
+      <div class="">
+        <span class="">Qty:</span>
+        <input class="getQty" type="text" name="" value="">
+
+
+      </div>
+
+      <div class="">
+        <button class='addButton  ' type="button" name="button">Add</button>
+
+      </div>
 
     </div>
 
-    <div class="selectors row">
-
-      <select class="brandSelect row" name="">
-
-          <option class="brand"  ></option>
-          <option class="brand" value = "All">All</option>
+    <div class="row">
+      <div class="selectors">
+        <select class="brandSelect" name="">
+          <option class="brand"></option>
+          <option class="brand" value="All">All</option>
           <option class="brand" value="Adidas">Adidas</option>
           <option class="brand" value="Nike">Nike</option>
           <option class="brand" value="New Balance">New Balance</option>
           <option class="brand" value="All Stars">All Stars</option>
           <option class="brand" value="Lacoste">LaCoste</option>
-
         </select>
 
-      <select class="colorSelect row" name="">
+        <select class="colorSelect" name="">
+          <option class="color"  ></option>
+          <option class="color" value = 'All' >All</option>
+          <option class="color" value="blue">Blue</option>
+          <option class="color" value="red">Red</option>
+          <option class="color" value="black">Black</option>
+          <option class="color" value="white">White</option>
+          <option class="color" value="green">Green</option>
+        </select>
 
-            <option class="color"  ></option>
-            <option class="color" value = 'All' >All</option>
-            <option class="color" value="blue">Blue</option>
-            <option class="color" value="red">Red</option>
-            <option class="color" value="black">Black</option>
-            <option class="color" value="white">White</option>
-            <option class="color" value="green">Green</option>
+        <select class="sizeSelect" name="">
+          <option class="size"  ></option>
+          <option class="size" value = 'All' >All</option>
+          <option class="size" value="4">Size 4</option>
+          <option class="size" value="5">Size 5</option>
+          <option class="size" value="6">Size 6</option>
+          <option class="size" value="7">Size 7</option>
+          <option class="size" value="8">Size 8</option>
+          <option class="size" value="9">Size 9</option>
+          <option class="size" value="10">Size 10</option>
+          <option class="size" value="11">Size 11</option>
+          <option class="size" value="12">Size 12</option>
+        </select>
 
-          </select>
+        <button class='filterButton' type="button" name="button">Search</button>
+      </div>
 
-      <select class="sizeSelect row" name="">
+      <div class="displayResult">
 
-              <option class="size"  ></option>
-              <option class="size" value = 'All' >All</option>
-              <option class="size" value="4">Size 4</option>
-              <option class="size" value="5">Size 5</option>
-              <option class="size" value="6">Size 6</option>
-              <option class="size" value="7">Size 7</option>
-              <option class="size" value="8">Size 8</option>
-              <option class="size" value="9">Size 9</option>
-              <option class="size" value="10">Size 10</option>
-              <option class="size" value="11">Size 11</option>
-              <option class="size" value="12">Size 12</option>
-
-            </select>
-
-            <div class="addBox ">
-              <span class = "row">Brand:</span>
-              <input class="getBrand row" type="text" name="" value="">
-
-              <span class = "row">Color:</span>
-              <input class="getColor row" type="text" name="" value="">
-
-              <span class = "row">Size:</span>
-              <input class="getSize row" type="text" name="" value="">
-
-              <span class = "row">Price:</span>
-              <input class="getPrice row" type="text" name="" value="">
-
-              <span class = "row">Qty:</span>
-              <input class="getQty row" type="text" name="" value="">
-            </div>
-            <button class = 'addButton row' type="button" name="button">Add</button>
+      </div>
     </div>
-
-    <div class="displayResult row">
-
-      <span class = " dsiplayBrand row {{brand}} ">{{brand}}:</span>
-      <!-- <div class="{{brand}} row">
-
-      </div> -->
-      <span class = " displaySize row {{size}}">{{size}}:</span>
-      <!-- <div class="displaySize row">
-
-      </div> -->
-      <span class = "  displayColor row {{color}}">{{color}}:</span>
-      <!-- <div class="displayColor row">
-
-      </div> -->
-      <span class = " displayQty row {{in_stock}}">{{in_stock}}:</span>
-      <!-- <div class="displayQty row">
-
-      </div> -->
-
-
-    </div>
-    <button class = 'filterButton row' type="button" name="button">Search</button>
-
-    <!-- <div class="addBox ">
-      <input class="getBrand row" type="text" name="" value="">
-      <input class="getColor row" type="text" name="" value="">
-      <input class="getSize row" type="text" name="" value="">
-      <input class="getQty row" type="text" name="" value="">
-    </div> -->
-
-
-
-
   </div>
 
 

@@ -1,159 +1,140 @@
+*{
+  box-sizing: border-box;
+}
+
 html,
 body {
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
-  left: 0;
-  top: 0;
-  font-size: 100%;
-  font-family: monospace;
-  font-style: normal;
-  font: courier;
+}
+
+html{
+  font-family: Helvetica, sans-serif;
+  font-size: 1.4rem;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 .container {
-  width: 90%;
-  height: 90%;
-  padding: 16px;
-  margin-left: auto;
-  margin-right: auto;
-
+  padding: 1rem;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
-.center {
-/* //  text-align: center; */
-  margin-left: auto;
-  margin-right: auto;
+.container:before, .container:after{
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .row {
-  margin-top: 2rem;
+
+  width: 100%;
+  margin-bottom: 2rem;
+
 }
 
-/* heading */
+.row:before,.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row div{
+  width: 100%;
+  max-width: 420px;
+  float: left;
+}
+
+.selectors {
+  float: left;
+  padding-left: 6px;
+  margin-right: 1rem;
+
+}
+
+.displayResult{
+  /* margin-right: */
+  height: 100%;
+  /* border: 1px black solid; */
+}
+
+
+.selectors select, .selectors button{
+
+  /* margin-top: 1rem; */
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.addBox{
+  padding: 1rem;
+  border: solid black 1px;
+  width: 100%;
+  font-size: small;
+  line-height: 2rem;
+}
+.addBox div {
+  float:left;
+  width: fit-content;
+}
+.addBox input {
+  margin-right: 6px;
+  padding: 3px;
+  width:90px;
+}
+
+.addBox span{
+  float: left;
+  width: 50px;
+}
+
+.addBox button{
+  /* float: left; */
+  width: 50px;
+  padding: 0.5rem;
+  margin-left: 1.5rem;
+}
+
+
+
+.displayBasket table{
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  width: 90%;
+  height: 200px;
+  font-size: small;
+  /* border: solid black 0.5px; */
+  padding: 1rem;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+.displayBasket td{
+  margin: 1rem;
+  width: 10px;
+  /* border-bottom:solid black 0.5px; */
+}
 
 .heading{
   width: 100%;
 }
-
-/* slectors */
-.selectors{
-
-  padding: 10px;
-  float: left;
-  width: 40%;
+h1 {
+  float:left;
 
 }
 
-.brandSelect{
+.cart{
+  float: right;
+  width: 30px;
+  /* height: 100px */
 
-  width:100%;
-}
-
-.colorSelect{
-
-  width:100%;
-
-}
-
-.sizeSelect{
-
-  width:100%;
-
-}
-
-/* add stuff */
-
-.addBox{
-  /* float: left; */
-  width:  40%;
-  padding: 10px;
-    /* margin: 0 auto; */
-
-}
-
-.selectors input{
-  width: 100%;
-  /* float: left; */
-}
-
-/* Display Stuff */
-
-.displayResult{
-
-width: 40%;
-margin:10px;
-padding: 20px;
-height:40%;
-float: left;
-/* border: 1px solid black; */
-/* border-color: black */
-}
-
-/* .displayResult span{
-  float: left;
-
-  width: 20%;
-
-
-} */
-
-.displayFilter{
-  float: left;
-  width: 70%;
-  height: 10%;
-  /* border: 1px solid black; */
-}
-
-.displayQty{
-  float: left;
-
-  width: 70%;
-  height: 10%;
-  /* border: 1px solid black; */
-}
-
-.displaySize{
-  float: left;
-
-  width: 70%;
-  height: 10%;
-  /* border: 1px solid black; */
-
-
-}
-
-.displayColor{
-  float: left;
-
-  width: 70%;
-  height: 10%;
-  /* border: 1px solid black; */
-
-}
-
-@media (max-width: 700px) {
-
-  .day {
-    width:40%;
-
-    content: "";
-    display: block;
-    clear: both;
-  }
-
-  /* .handleBars{
-    width: 90%;
-    padding:20px;
-    float: left;
-  }
-
-  .static{
-    width: 90%;
-    padding:20px;
-    float: left;
-  } */
-
+  padding: 1rem;
+  box-shadow: 0 2px 5px #ccc;
 }

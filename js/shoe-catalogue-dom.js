@@ -20,7 +20,8 @@ var getQty = document.querySelector('.getQty');
 
 //buttons
 var addBtn = document.querySelector('.addButton');
-var searchBtn = document.querySelector('.filterButton')
+var searchBtn = document.querySelector('.filterButton');
+var addToCart = document.querySelectorAll('.addToCartBtn')
 
 //template
 
@@ -30,49 +31,47 @@ var shoeFilterTemplate = Handlebars.compile(shoeFilterTemplateSource);
 
 var insertRegDataElem = document.querySelector(".displayResult");
 
+//Local Storage
+var storedShoes = localStorage.getItem('shoeList') ? JSON.parse(localStorage.getItem('shoeList')) : {};
+var basket = localStorage.getItem('basket') ? JSON.parse(localStorage.getItem('basket')) : {};
+
 var callFunction = ShoeCatalogueFunction()
 
+// function getId(addToCart){
+//
+//   // for(var i = 0; i<storedShoes.length; i++){
+//     return addToCart.id
+//   }
+// }
+
 searchBtn.addEventListener('click', function(){
-
   var params = {
-    color: color.value,
-    brand: brand.value,
-    size: size.value,
-    // price: price.value,
-
   }
 
-if(color.value == ''){
-  delete params.color
+if(color.value !== ''){
+   params.color =  color.value
 }
 
-if(brand.value == ''){
-  delete params.brand
+if(brand.value !== ''){
+  params.brand = brand.value
 }
 
-if(size.value == ''){
-  delete params.size
+if(size.value !== ''){
+  params.size = size.value;
 }
-
-
-var x = callFunction.filter(params)
-console.log(x)
-console.log(params)
-
 
 var shoeList = callFunction.filter(params)
 
-insertRegDataElem.innerHTML = shoeFilterTemplate({
-  color:color,
-  brand:brand,
-  size:size,
-  // price: price.value,
-  // in_stock:in_stock
-});
+insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList:shoeList});
 
 });
 
 addBtn.addEventListener('click', function(){
 //console.log(callFunction.add(getColor.value, getBrand.value, getSize.value, getPrice.value, getQty.value))
-console.log(callFunction.add('orange', 'Puma', 7, 300, 1))
+// getId(addbasketitem)
+callFunction.addBasket()
 });
+
+// addToCart.addEventlistener('click', function(){
+//
+// });
