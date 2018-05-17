@@ -35,7 +35,7 @@ function ShoeCatalogueFunction() {
   ];
   var filterMap = [];
   var shoppingBasket = [];
-
+  var basketTotal = 0
 
 
   function shoeCatalogueFilter(params) {
@@ -79,6 +79,7 @@ function ShoeCatalogueFunction() {
         if (current.id == id){
       //  if (item.color == current.color && item.brand == current.brand && item.size == current.size){
           current.qty +=1;
+          theTotal = current.qty * current.price
            itExists = true;
         }
       });
@@ -96,7 +97,7 @@ function ShoeCatalogueFunction() {
             qty: 1
 
           });
-
+          // total =
       }
 
     shoes.map(current => {
