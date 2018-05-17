@@ -1,7 +1,7 @@
 //filter selection
 var brand = document.querySelector('.brandSelect');
 var color = document.querySelector('.colorSelect');
-var size = document.querySelector('.size');
+var size = document.querySelector('.sizeSelect');
 
 //display elements
 var displayBrand = document.querySelector('.displayBrand')
@@ -40,16 +40,29 @@ var shoeBasketTemplate = Handlebars.compile(shoeBasketTemplateSource);
 var insertBasketDataElem = document.querySelector(".displayBasketList");
 
 
-var storedShoes = localStorage.getItem('shoeList') ? JSON.parse(localStorage.getItem('shoeList')) : {};
-var basket = localStorage.getItem('basket') ? JSON.parse(localStorage.getItem('basket')) : {};
+var storedShoes = localStorage.getItem('shoeList') ? JSON.parse(localStorage.getItem('shoeList')) : [];
+var basket = localStorage.getItem('basket') ? JSON.parse(localStorage.getItem('basket')) : [];
 
 var callFunction = ShoeCatalogueFunction()
+
+
 
 function getId(id){
   callFunction.addBasket(id)
   localStorage.setItem('basket', JSON.stringify(callFunction.returnBasket()));
+  localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()));
   basketDisplay()
-  
+  // location.reload()
+
+  }
+
+  function basketDisplay() {
+    //console.log(callFunction.returnBasket())
+    var basket = callFunction.returnBasket()
+      insertBasketDataElem.innerHTML = shoeBasketTemplate({
+          items:basket,
+        //  total: callFunction.basketTotal()
+      });
   }
 
 
@@ -69,6 +82,8 @@ if(size.value !== ''){
   params.size = size.value;
 }
 
+console.log(params.size)
+
 var shoeList = callFunction.filter(params)
 
 insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList:shoeList});
@@ -79,47 +94,10 @@ addBtn.addEventListener('click', function(){
 callFunction.add(getColor.value, getBrand.value, getSize.value, getPrice.value, getQty.value)
 });
 
-// addToCart.addEventlistener('click', function(){
-//   getId(addbasketitem)
-//   basketDisplay()
-// });
+
 
 window.addEventListener('load', function(){
-localStorage.setItem('basket', JSON.stringify(callFunction.shoe()))
-
+localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()))
+insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList:storedShoes});
+basketDisplay()
 })
-function basketDisplay() {
-  console.log(callFunction.returnBasket())
-  var basket = callFunction.returnBasket()
-    insertBasketDataElem.innerHTML = shoeBasketTemplate({
-        items:basket,
-      //  total: callFunction.basketTotal()
-    });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function searchString(shoeID) {
-//     shoes.toCart(shoeID);
-//     localStorage.setItem('CART', JSON.stringify(shoes.cart()));
-//     updateCartDisplay();
-// }

@@ -195,6 +195,9 @@ describe('Filter function', function() {
     });
 
   it('should return all size 6', function(){
+    // console.log((callFunction.filter({
+    //   size: 6
+    // })))
     assert.equal(callFunction.filter({
       size: 6
     })[
@@ -209,21 +212,20 @@ describe('Filter function', function() {
 
   });
 
-  it('!!!should return white nike shoes!!!', function() {
+  it('should return white Adidas shoes', function() {
 
-
-
-    assert.equal(callFunction.filter({
+    assert.deepEqual(callFunction.filter({
       brand: 'Adidas',
       color: 'white',
-    })[
+    }), [
 
       {
-        brand: 'Nike',
+        id:22,
+        brand: 'Adidas',
         color: 'white',
-        price: 350,
-        size: 4,
-        in_stock: 7
+        price: 275,
+        size: 6,
+        in_stock: 6
       }
 
     ]);
@@ -232,23 +234,23 @@ describe('Filter function', function() {
   it('should return black Adidas size 4', function() {
 
 
-
-    assert.equal(callFunction.filter({
+    assert.deepEqual(callFunction.filter({
       brand: "Adidas",
       color: 'black',
       size: 4
-    })[
-
+    }), [
       {
+        id:17,
         color: 'black',
         brand: "Adidas",
-        price: 350,
+        price: 275,
         size: 4,
-        in_stock: 7
+        in_stock: 2
       }
 
     ]);
   });
+
 
 });
 

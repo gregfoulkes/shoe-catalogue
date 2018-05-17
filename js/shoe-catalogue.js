@@ -1,6 +1,6 @@
-function ShoeCatalogueFunction() {
+function ShoeCatalogueFunction(storedShoes, basket) {
 
-  var shoes = [
+  var shoes = storedShoes || [
 
           {id: 1, color : 'blue', brand : "Nike",price : 350, size:8, in_stock : 5},
           {id: 2,color : 'blue', brand : "Adidas",price : 275, size:6, in_stock : 3},
@@ -33,14 +33,22 @@ function ShoeCatalogueFunction() {
           {id: 25,color : 'white', brand : "All Stars",price : 250, size:9, in_stock : 1}
 
   ];
-  var filterMap = [];
-  var shoppingBasket = [];
+//  var filterMap = [];
+  var shoppingBasket = basket || [];
   var basketTotal = 0
+
+  if (storedShoes && storedShoes.length>0) {
+      shoes = []
+    for (var i = 0; i < storedShoes.length; i++) {
+    //  var regNumber = storage[i];
+      shoes[storedShoes[i]] = 0
+    }
+  }
 
 
   function shoeCatalogueFilter(params) {
-    filterMap =  _.filter(shoes, params);
-    return filterMap;
+    //filterMap =
+    return _.filter(shoes, params);
   }
 
   function addShoeToList(color, brand, size, price, in_stock) {
@@ -79,9 +87,12 @@ function ShoeCatalogueFunction() {
         if (current.id == id){
       //  if (item.color == current.color && item.brand == current.brand && item.size == current.size){
           current.qty +=1;
-          theTotal = current.qty * current.price
+          basketTotal = current.qty * current.price
            itExists = true;
+
         }
+        //console.log(current.qty)
+
       });
 
     if (!itExists) {

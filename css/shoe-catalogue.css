@@ -59,12 +59,6 @@ html{
 
 }
 
-.displayResult{
-  /* margin-right: */
-  height: 100%;
-  /* border: 1px black solid; */
-}
-
 
 .selectors select, .selectors button{
 
@@ -108,14 +102,13 @@ html{
 .displayFilteredShoes table, .displayBasket table{
   margin-left: 2rem;
   margin-bottom: 1rem;
-  width: 90%;
+  width: 80%;
   max - height: 200px;
   font-size: small;
   /* border: solid black 0.5px; */
   padding: 1rem;
   box-shadow: 0 2px 5px #ccc;
 
-  overflow-y: auto;
 }
 
 .displayFilteredShoes td, .displayBasket td{
@@ -124,12 +117,46 @@ html{
   /* border-bottom:solid black 0.5px; */
 }
 
+.displayShoelist{
+  /* margin-right: */
+  height: 100%;
+  overflow-y: scroll;
+  width: 40%;
+  /* height: px; */
+  max-height: 300px;
+  max-width: 300px;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+.basket-wrapper {
+  max-height: 180px;
+  position: relative;
+  overflow-y: scroll;
+}
+
+.displayBasketlist{
+  /* margin-left: 2rem;
+  margin-bottom: 1rem; */
+
+  width: 80%;
+  max-height: 100px;
+  font-size: small;
+  border: solid black 1px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px #ccc;
+
+}
+
 .heading{
   width: 100%;
+
 }
 h1 {
   float:left;
+}
 
+.show{
+  display: block;
 }
 
 /* .cart{
