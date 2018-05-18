@@ -1,6 +1,6 @@
 function ShoeCatalogueFunction(storedShoes, basket) {
 
-  var shoes = storedShoes || [
+  var shoes = [
 
           {id: 1, color : 'blue', brand : "Nike",price : 350, size:8, in_stock : 5},
           {id: 2,color : 'blue', brand : "Adidas",price : 275, size:6, in_stock : 3},
@@ -33,21 +33,28 @@ function ShoeCatalogueFunction(storedShoes, basket) {
           {id: 25,color : 'white', brand : "All Stars",price : 250, size:9, in_stock : 1}
 
   ];
-//  var filterMap = [];
+
   var shoppingBasket = basket || [];
+  
   var basketTotal = 0
 
-  if (storedShoes && storedShoes.length>0) {
-      shoes = []
+  if (storedShoes && storedShoes.length > 0) {
+    shoes = []
     for (var i = 0; i < storedShoes.length; i++) {
-    //  var regNumber = storage[i];
-      shoes[storedShoes[i]] = 0
+      shoes.push(storedShoes[i])
     }
   }
+  //
+  // if (basket && basket.length> 0 ) {
+  //   shoppingBasket = []
+  //   for (var i = 0; i < basket.length; i++) {
+  //     shoppingBasket.push(basket[i])
+  //   }
+  // }
 
 
   function shoeCatalogueFilter(params) {
-    //filterMap =
+
     return _.filter(shoes, params);
   }
 
@@ -58,14 +65,14 @@ function ShoeCatalogueFunction(storedShoes, basket) {
       var shoe = shoes[i]
       if (color === shoe.color && brand === shoe.brand && size === shoe.size && price === shoe.price) {
         shoe.in_stock++;
-          exists = true;
+        exists = true;
       }
     }
 
     if (!exists) {
-      var id = shoes.length +1;
-       shoes.push ({
-         id: id,
+      var id = shoes.length + 1;
+      shoes.push({
+        id: id,
         color: color,
         brand: brand,
         size: parseInt(size),
@@ -81,49 +88,71 @@ function ShoeCatalogueFunction(storedShoes, basket) {
   function addToBasket(id) {
 
     var itExists = false;
+    var item = shoes.find(shoeId => (shoeId.id == id));
+
+    if (item.in_stock > 0) {
 
       shoppingBasket.map(current => {
 
-        if (current.id == id){
-      //  if (item.color == current.color && item.brand == current.brand && item.size == current.size){
-          current.qty +=1;
+        if (current.id == id) {
+          current.qty += 1;
           basketTotal = current.qty * current.price
-           itExists = true;
+          itExists = true;
 
         }
-        //console.log(current.qty)
-
       });
 
-    if (!itExists) {
+      if (!itExists) {
 
-     var item = shoes.find(shoeId => (shoeId.id == id));
 
-          shoppingBasket.push({
-            id: id,
-            color: item.color,
-            brand: item.brand,
-            size: item.size,
-            price: item.price,
-            qty: 1
+        shoppingBasket.push({
+          id: id,
+          color: item.color,
+          brand: item.brand,
+          size: item.size,
+          price: item.price,
+          qty: 1
 
-          });
-          // total =
+        });
       }
 
-    shoes.map(current => {
+      shoes.map(current => {
 
-        if (current.id == id){
-        current.in_stock = current.in_stock -= 1
-      }
-    })
+
+        if (current.id == id) {
+          current.in_stock = current.in_stock -= 1
+
+        }
+      });
+
+      shoppingBasket.map(current => {
+
+        var subTotal = 0
+        if (current.id == id) {
+          subTotal = current.price * current.qty
+          basketTotal = subTotal + basketTotal
+          console.log(basketTotal)
+        }
+      });
+      return true
+    }
+    return false
+  }
+
+
+  function returnTotal() {
+    return basketTotal
+  }
+
+  function returnCartLength() {
+    return shoppingBasket.length
   }
 
   function returnShoppingBasket() {
     return shoppingBasket
   }
 
-  function shoeList(){
+  function shoeList() {
     return shoes
   }
 
@@ -132,7 +161,9 @@ function ShoeCatalogueFunction(storedShoes, basket) {
     add: addShoeToList,
     returnBasket: returnShoppingBasket,
     addBasket: addToBasket,
-    shoe:shoeList
+    shoe: shoeList,
+    total: returnTotal,
+    cartLength: returnCartLength,
   }
 
-}
+  }

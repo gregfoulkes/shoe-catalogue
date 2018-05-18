@@ -62,7 +62,6 @@ html{
 
 .selectors select, .selectors button{
 
-  /* margin-top: 1rem; */
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -75,6 +74,7 @@ html{
   font-size: small;
   line-height: 2rem;
 }
+
 .addBox div {
   float:left;
   width: fit-content;
@@ -118,25 +118,26 @@ html{
 }
 
 .displayShoelist{
-  /* margin-right: */
+  margin-bottom: 2rem;
+padding: 1.5rem;
   height: 100%;
   overflow-y: scroll;
-  width: 40%;
+  width: 100%;
   /* height: px; */
-  max-height: 300px;
+  max-height: 232px;
   max-width: 300px;
   box-shadow: 0 2px 5px #ccc;
 }
 
 .basket-wrapper {
+  width: 100%;
   max-height: 180px;
   position: relative;
   overflow-y: scroll;
 }
 
 .displayBasketlist{
-  /* margin-left: 2rem;
-  margin-bottom: 1rem; */
+  margin: 1rem;
 
   width: 80%;
   max-height: 100px;
@@ -153,17 +154,25 @@ html{
 }
 h1 {
   float:left;
+  width: 100%;ss
 }
 
 .show{
   display: block;
 }
 
-/* .cart{
-  float: right;
-  width: 30px;
-  height: 100px
-
-  padding: 1rem;
+/* .cartDisplay{
+  height: 50px;
+  width:100px;
   box-shadow: 0 2px 5px #ccc;
+
 } */
+
+.displayCartTotals {
+  /* float: left; */
+  /* width: 200px;
+  height: 100px */
+
+  /* padding: 1rem; */
+  /* box-shadow: 0 2px 5px #ccc; */
+}

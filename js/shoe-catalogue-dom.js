@@ -39,11 +39,19 @@ var shoeBasketTemplate = Handlebars.compile(shoeBasketTemplateSource);
 
 var insertBasketDataElem = document.querySelector(".displayBasketList");
 
+// cartDisplayTemplate
+
+var shoeCartTemplateSource = document.querySelector('.cartDisplayTemplate').innerHTML;
+
+var shoeCartTemplate = Handlebars.compile(shoeCartTemplateSource);
+
+var insertCartDataElem = document.querySelector(".displayCartTotals");
+
 
 var storedShoes = localStorage.getItem('shoeList') ? JSON.parse(localStorage.getItem('shoeList')) : [];
 var basket = localStorage.getItem('basket') ? JSON.parse(localStorage.getItem('basket')) : [];
 
-var callFunction = ShoeCatalogueFunction()
+var callFunction = ShoeCatalogueFunction(storedShoes, basket)
 
 
 
@@ -52,52 +60,71 @@ function getId(id){
   localStorage.setItem('basket', JSON.stringify(callFunction.returnBasket()));
   localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()));
   basketDisplay()
+  listDisplay()
+  totalDisplay()
+
   // location.reload()
 
   }
 
   function basketDisplay() {
-    //console.log(callFunction.returnBasket())
+    localStorage.setItem('basket', JSON.stringify(callFunction.returnBasket()));
+
     var basket = callFunction.returnBasket()
       insertBasketDataElem.innerHTML = shoeBasketTemplate({
           items:basket,
-        //  total: callFunction.basketTotal()
       });
   }
 
+  function totalDisplay(){
+    var cartTotal = callFunction.total();
 
-searchBtn.addEventListener('click', function(){
-  var params = {
+    var cartTotalHTML = shoeCartTemplate({
+       total: cartTotal
+    });
+
+    insertCartDataElem.innerHTML = cartTotalHTML;
+
   }
 
-if(color.value !== ''){
-   params.color =  color.value
-}
+  window.addEventListener('load', function(){
+  localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()))
+  localStorage.setItem('basket', JSON.stringify(callFunction.returnBasket()));
 
-if(brand.value !== ''){
-  params.brand = brand.value
-}
+  insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList:storedShoes});
+  basketDisplay()
+  })
 
-if(size.value !== ''){
-  params.size = size.value;
-}
+  function listDisplay(){
 
-console.log(params.size)
+    var params = {
+    }
 
-var shoeList = callFunction.filter(params)
+  if(color.value !== ''){
+     params.color =  color.value
+  }
 
-insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList:shoeList});
+  if(brand.value !== ''){
+    params.brand = brand.value
+  }
+
+  if(size.value !== ''){
+    params.size = size.value;
+  }
+
+  console.log(params.size)
+
+  var shoeList = callFunction.filter(params)
+
+  insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList:shoeList});
+
+  }
+
+searchBtn.addEventListener('click', function(){
+listDisplay()
 
 });
 
 addBtn.addEventListener('click', function(){
 callFunction.add(getColor.value, getBrand.value, getSize.value, getPrice.value, getQty.value)
 });
-
-
-
-window.addEventListener('load', function(){
-localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()))
-insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList:storedShoes});
-basketDisplay()
-})
