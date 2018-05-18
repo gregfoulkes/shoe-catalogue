@@ -61,6 +61,7 @@ function getId(id){
   localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()));
   basketDisplay()
   listDisplay()
+  //console.log(callFunction.totalCart())
   totalDisplay()
 
   // location.reload()

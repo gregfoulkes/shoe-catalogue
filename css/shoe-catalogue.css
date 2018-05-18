@@ -48,7 +48,7 @@ html{
 
 .row div{
   width: 100%;
-  max-width: 420px;
+  /* max-width: 420px; */
   float: left;
 }
 
@@ -56,11 +56,13 @@ html{
   float: left;
   padding-left: 6px;
   margin-right: 1rem;
+  width: 30%;
+  max-width: 420px;
 
 }
 
 
-.selectors select, .selectors button{
+.selectors select, .selectors button {
 
   width: 100%;
   padding: 0.5rem;
@@ -125,12 +127,14 @@ padding: 1.5rem;
   width: 100%;
   /* height: px; */
   max-height: 232px;
-  max-width: 300px;
+  max-width: 420px;
   box-shadow: 0 2px 5px #ccc;
 }
 
 .basket-wrapper {
   width: 100%;
+  max-width: 420px;
+
   max-height: 180px;
   position: relative;
   overflow-y: scroll;
@@ -161,6 +165,10 @@ h1 {
   display: block;
 }
 
+/* .displayCartTotals span{
+  padding-top: 10px;
+} */
+
 /* .cartDisplay{
   height: 50px;
   width:100px;
@@ -168,11 +176,15 @@ h1 {
 
 } */
 
-.displayCartTotals {
-  /* float: left; */
-  /* width: 200px;
-  height: 100px */
+/* .displayCartTotals { */
+  /* margin: 1rem; */
+/* //  margin-right: 10rem; */
+  /* width: 100%;
+  max-width: 350px;
 
-  /* padding: 1rem; */
-  /* box-shadow: 0 2px 5px #ccc; */
-}
+  max-height: 180px;
+  background-color: white;
+  box-shadow: 0 2px 5px #ccc;
+  float: left;
+
+} */

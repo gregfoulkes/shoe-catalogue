@@ -35,7 +35,7 @@ function ShoeCatalogueFunction(storedShoes, basket) {
   ];
 
   var shoppingBasket = basket || [];
-  
+
   var basketTotal = 0
 
   if (storedShoes && storedShoes.length > 0) {
@@ -139,6 +139,23 @@ function ShoeCatalogueFunction(storedShoes, basket) {
     return false
   }
 
+  // function totalCart(){
+  //   let subTotal = 0
+  //   if(shoppingBasket){
+  //     subTotal = shoppingBasket.reduce((total, current) => (total + (current.price * current.qty)), 0)
+  //   }
+  //   basketTotal =(basket + subTotal)
+  // }
+
+  // function clearButton(){
+  //
+  //   shoppingBasket.map(current => {
+  //
+  //   }
+  //
+  //
+  // }
+
 
   function returnTotal() {
     return basketTotal
@@ -164,6 +181,7 @@ function ShoeCatalogueFunction(storedShoes, basket) {
     shoe: shoeList,
     total: returnTotal,
     cartLength: returnCartLength,
+    //totalCart,
   }
 
   }

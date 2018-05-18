@@ -499,3 +499,9 @@ describe('checkBasketlength', function() {
   });
 
 });
+
+describe('Clear Cart Function ', function(){
+
+    assert.deepEqual(callFunction.shoe(),)
+
+});
