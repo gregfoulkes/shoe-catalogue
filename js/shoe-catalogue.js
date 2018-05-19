@@ -138,7 +138,7 @@ function ShoeCatalogueFunction(storedShoes, basket) {
     return basketTotal + subTotal
   }
 
-  function clearShoppingBasket(id) {
+  function clearShoppingBasket() {
        for (let i = 0; i < shoes.length; i++) {
            // temp vars
            let current = shoes[i];

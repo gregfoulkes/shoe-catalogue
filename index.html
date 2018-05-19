@@ -42,7 +42,6 @@
         <tr><td><strong>Price:</strong></td><td> {{price}}</td></tr>
         <tr><td><strong>Qty:</strong></td><td>{{qty}}</td></tr>
         <tr>
-        <td></td><td><button style ='float:right' class ='addToCartBtn' onclick='clearBasket({{id}})'>Add to Cart</button></td>
         </tr>
       </table>
 
@@ -52,17 +51,18 @@
   </script>
 
   <script type="text/x-template" class='cartDisplayTemplate'>
-    <span>Cart Total:<span> R {{total}}</span> </span>
+    <span style="margin: 1rem; padding: 20px;">Cart Total:<span style="margin: 1rem;"> R {{total}}</span> </span>
+    <td><button style ='float:right' class ='clear()' onclick='clear()'>Clear Cart</button></td>
   </script>
 
-<span></span>
   <title>Shoe-Catalogue</title>
 </head>
 <body>
   <div class="container">
     <div class="heading row center">
       <h1>Shoe Catalogue</h1>
-      <div class="displayCartTotals center" style="margin-right: 10rem; padding-top: 10px  height : 2.5em; width : 15em; background-color: white; box-shadow: 0 2px 5px #ccc;" >
+      <div class="displayCartTotals" style="margin-right: 10rem; padding: 20px  height : 2.5em; width : 20em; background-color: white; box-shadow: 0 2px 5px #ccc;" >
+
 
       </div>
 

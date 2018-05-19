@@ -47,7 +47,7 @@ var shoeCartTemplate = Handlebars.compile(shoeCartTemplateSource);
 
 var insertCartDataElem = document.querySelector(".displayCartTotals");
 
-
+//localStorage
 var storedShoes = localStorage.getItem('shoeList') ? JSON.parse(localStorage.getItem('shoeList')) : [];
 var basket = localStorage.getItem('basket') ? JSON.parse(localStorage.getItem('basket')) : [];
 
@@ -62,11 +62,7 @@ function getId(id){
   listDisplay()
 
   basketDisplay()
-//  callFunction.totalCart()
-//callFunction.total()
 
-  // location.reload()
-  //totalDisplay()
 
   }
 
@@ -86,11 +82,14 @@ function getId(id){
 
     }
 
+    function clear() {
+      callFunction.clearBasket();
+      localStorage.setItem('shoeList', JSON.stringify(callFunction.returnBasket()));
+      localStorage.removeItem('basket');
+      // force reload to update
+      basketDisplay();
+    }
 
-  // function totalDisplay(){
-  //   // var cartTotal = callFunction.totalCart();
-  //
-  // }
 
   window.addEventListener('load', function(){
   localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()))
