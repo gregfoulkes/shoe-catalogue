@@ -59,12 +59,14 @@ function getId(id){
   callFunction.addBasket(id)
   localStorage.setItem('basket', JSON.stringify(callFunction.returnBasket()));
   localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()));
-  basketDisplay()
   listDisplay()
-  //console.log(callFunction.totalCart())
-  totalDisplay()
+
+  basketDisplay()
+//  callFunction.totalCart()
+//callFunction.total()
 
   // location.reload()
+  //totalDisplay()
 
   }
 
@@ -75,18 +77,20 @@ function getId(id){
       insertBasketDataElem.innerHTML = shoeBasketTemplate({
           items:basket,
       });
-  }
 
-  function totalDisplay(){
-    var cartTotal = callFunction.total();
+      var cartTotalHTML = shoeCartTemplate({
+         total:  callFunction.total()
+      });
 
-    var cartTotalHTML = shoeCartTemplate({
-       total: cartTotal
-    });
+      insertCartDataElem.innerHTML = cartTotalHTML;
 
-    insertCartDataElem.innerHTML = cartTotalHTML;
+    }
 
-  }
+
+  // function totalDisplay(){
+  //   // var cartTotal = callFunction.totalCart();
+  //
+  // }
 
   window.addEventListener('load', function(){
   localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()))
@@ -94,6 +98,8 @@ function getId(id){
 
   insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList:storedShoes});
   basketDisplay()
+  listDisplay()
+
   })
 
   function listDisplay(){

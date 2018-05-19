@@ -364,47 +364,6 @@ describe('Add function check matching items', function(){
 
 });
 
-describe('Add function checking total', function() {
-
-  it('Should return cart total 1100', function() {
-    var callFunction = ShoeCatalogueFunction()
-
-
-    callFunction.addBasket(2)
-    callFunction.addBasket(7)
-    callFunction.addBasket(17)
-    callFunction.addBasket(17)
-
-    assert.equal(callFunction.total(), 1100)
-
-  });
-
-  it('Should return cart total 825', function() {
-    var callFunction = ShoeCatalogueFunction()
-
-
-    callFunction.addBasket(2)
-    callFunction.addBasket(7)
-    callFunction.addBasket(17)
-    assert.equal(callFunction.total(), 825)
-
-  });
-
-  it('Should return cart total 1175', function() {
-    var callFunction = ShoeCatalogueFunction()
-
-
-    callFunction.addBasket(2)
-    callFunction.addBasket(7)
-    callFunction.addBasket(17)
-    callFunction.addBasket(16)
-
-    assert.equal(callFunction.total(), 1175)
-
-  });
-
-});
-
 describe('checkBasketlength', function() {
 
   it('Should return cart length of 3', function() {
@@ -450,7 +409,7 @@ describe('checkBasketlength', function() {
     });
   });
 
-describe('checkBasketlength', function() {
+describe('check for zero Qty', function() {
 
   it('Should stop at zero qauntity', function() {
     var callFunction = ShoeCatalogueFunction()
@@ -496,12 +455,140 @@ describe('checkBasketlength', function() {
 
     ]);
 
+    });
+
   });
 
+describe('Total Cart Function ', function(){
+
+  it('Should return cart total 1100', function() {
+    var callFunction = ShoeCatalogueFunction()
+
+
+
+    callFunction.addBasket(2)
+    callFunction.addBasket(7)
+    callFunction.addBasket(17)
+    callFunction.addBasket(17)
+  //  callFunction.totalCart( )
+
+
+    assert.equal(callFunction.total(), 1100)
+
+  });
+
+    it('Should return cart total 825', function() {
+      var callFunction = ShoeCatalogueFunction()
+
+
+      callFunction.addBasket(2)
+      callFunction.addBasket(7)
+      callFunction.addBasket(17)
+    //  callFunction.totalCart()
+
+      assert.equal(callFunction.total(), 825)
+
+    });
+
+    it('Should return cart total 1175', function() {
+      var callFunction = ShoeCatalogueFunction()
+
+
+      callFunction.addBasket(2)
+      callFunction.addBasket(7)
+      callFunction.addBasket(17)
+      callFunction.addBasket(16)
+    //  callFunction.totalCart()
+
+
+      assert.equal(callFunction.total(), 1175)
+
+    });
 });
 
-describe('Clear Cart Function ', function(){
+describe('Clear Basket Function ', function(){
 
-    assert.deepEqual(callFunction.shoe(),)
+  it('Should clear shopping basket', function() {
+    var callFunction = ShoeCatalogueFunction()
+
+
+
+    callFunction.addBasket(2)
+    callFunction.addBasket(7)
+    callFunction.addBasket(17)
+    callFunction.addBasket(17)
+    callFunction.clearBasket()
+
+    console.log(callFunction.returnBasket())
+    assert.deepEqual(callFunction.returnBasket(), [])
+
+  });
+
+  it('Should clear shopping basket and add shoe quantity back to shoes list', function() {
+    var callFunction = ShoeCatalogueFunction()
+
+    callFunction.addBasket(2)
+    callFunction.addBasket(7)
+    callFunction.addBasket(17)
+    callFunction.addBasket(17)
+    callFunction.clearBasket()
+
+    assert.deepEqual(callFunction.shoe(), [
+
+            {id: 1,color : 'blue', brand : "Nike",price : 350, size:8, in_stock : 5},
+            {id: 2,color : 'blue', brand : "Adidas",price : 275, size:6, in_stock : 3},
+            {id: 3,color : 'blue', brand : "New Balance",price : 320, size:4, in_stock : 7},
+            {id: 4,color : 'blue', brand : "LaCoste",price : 400, size:8, in_stock : 4},
+            {id: 5,color : 'blue', brand : "All Stars",price : 250, size:7, in_stock : 5},
+
+            {id: 6,color : 'red', brand : "Nike",price : 350,  size:7, in_stock : 9},
+            {id: 7,color : 'red', brand : "Adidas",price : 275, size:4, in_stock : 3},
+            {id: 8,color : 'red', brand : "New Balance",price : 320, size:6, in_stock : 2},
+            {id: 9,color : 'red', brand : "LaCoste",price : 400, size:5, in_stock : 9},
+            {id: 10,color : 'red', brand : "All Stars",price : 250, size:9, in_stock : 6},
+
+            {id: 11,color : 'green', brand : "Nike",price : 350, size:5, in_stock : 1},
+            {id: 12,color : 'green', brand : "Adidas",price : 275, size:4, in_stock : 9},
+            {id: 13,color : 'green', brand : "New Balance",price : 320, size:8, in_stock : 3},
+            {id: 14,color : 'green', brand : "LaCoste",price : 400, size:6, in_stock : 7},
+            {id: 15,color : 'green', brand : "All Stars",price : 250, size:8, in_stock : 8},
+
+            {id: 16,color : 'black', brand : "Nike",price : 350, size:7, in_stock : 8},
+            {id: 17,color : 'black', brand : "Adidas",price : 275, size:4, in_stock : 2},
+            {id: 18,color : 'black', brand : "New Balance",price : 320, size:8, in_stock : 4},
+            {id: 19,color : 'black', brand : "LaCoste",price : 400, size:6, in_stock : 2},
+            {id: 20,color : 'black', brand : "All Stars",price : 250, size:5, in_stock : 6},
+
+            {id: 21,color : 'white', brand : "Nike",price : 350, size:4, in_stock : 7},
+            {id: 22,color : 'white', brand : "Adidas",price : 275, size:6, in_stock : 6},
+            {id: 23,color : 'white', brand : "New Balance",price : 320, size:8, in_stock : 3},
+            {id: 24,color : 'white', brand : "LaCoste",price : 400, size:4, in_stock : 5},
+            {id: 25,color : 'white', brand : "All Stars",price : 250, size:9, in_stock : 1}
+
+    ]);
+
+  });
+
+  it('Should return basket total to zero', function() {
+    var callFunction = ShoeCatalogueFunction()
+
+
+
+    callFunction.addBasket(2)
+    callFunction.addBasket(7)
+    callFunction.addBasket(17)
+    callFunction.addBasket(17)
+    callFunction.clearBasket(2)
+    callFunction.clearBasket(7)
+    callFunction.clearBasket(17)
+    callFunction.clearBasket(17)
+
+
+
+
+    console.log(callFunction.basketTotal())
+    assert.deepEqual(callFunction.basketTotal(), 0)
+
+  });
 
 });

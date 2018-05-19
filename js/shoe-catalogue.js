@@ -96,7 +96,7 @@ function ShoeCatalogueFunction(storedShoes, basket) {
 
         if (current.id == id) {
           current.qty += 1;
-          basketTotal = current.qty * current.price
+        //  basketTotal = current.qty * current.price
           itExists = true;
 
         }
@@ -125,41 +125,38 @@ function ShoeCatalogueFunction(storedShoes, basket) {
         }
       });
 
-      shoppingBasket.map(current => {
-
-        var subTotal = 0
-        if (current.id == id) {
-          subTotal = current.price * current.qty
-          basketTotal = subTotal + basketTotal
-          console.log(basketTotal)
-        }
-      });
-      return true
+       return true
     }
     return false
   }
 
-  // function totalCart(){
-  //   let subTotal = 0
-  //   if(shoppingBasket){
-  //     subTotal = shoppingBasket.reduce((total, current) => (total + (current.price * current.qty)), 0)
-  //   }
-  //   basketTotal =(basket + subTotal)
-  // }
-
-  // function clearButton(){
-  //
-  //   shoppingBasket.map(current => {
-  //
-  //   }
-  //
-  //
-  // }
-
-
-  function returnTotal() {
-    return basketTotal
+  function totalCart(){
+    let subTotal = 0
+    if(shoppingBasket){
+      subTotal = shoppingBasket.reduce((total, current) => (total + (current.price * current.qty)), 0)
+    }
+    return basketTotal + subTotal
   }
+
+  function clearShoppingBasket(id) {
+       for (let i = 0; i < shoes.length; i++) {
+           // temp vars
+           let current = shoes[i];
+           let matchedShoe = shoppingBasket.find(shoe => (shoe.id == current.id));
+           // replace product
+           if (matchedShoe) {
+               current.in_stock += matchedShoe.qty;
+
+           }
+       }
+      basketTotal = 0.00;
+      shoppingBasket = [];
+   }
+
+
+   function returnBasketTotal() {
+    return basketTotal
+   }
 
   function returnCartLength() {
     return shoppingBasket.length
@@ -179,9 +176,10 @@ function ShoeCatalogueFunction(storedShoes, basket) {
     returnBasket: returnShoppingBasket,
     addBasket: addToBasket,
     shoe: shoeList,
-    total: returnTotal,
+    total: totalCart,
     cartLength: returnCartLength,
-    //totalCart,
+    clearBasket: clearShoppingBasket,
+    basketTotal: returnBasketTotal
   }
 
   }
