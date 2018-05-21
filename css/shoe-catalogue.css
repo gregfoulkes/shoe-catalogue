@@ -47,17 +47,50 @@ html{
 }
 
 .row div{
-  width: 100%;
-  /* max-width: 420px; */
+  /* width: 100%;
+  max-width: 420px; */
   float: left;
 }
+
+/* heading and cart Total */
+.heading{
+  width: 100%;
+
+}
+
+.shoeHeading h1{
+  width:50%;
+}
+
+h1 {
+  float:left;
+  width: 100%;
+}
+
+.show{
+  display: block;
+}
+
+.displayCartTotals button{
+  width: 100px;
+  padding: 0.5rem;
+  margin: 1rem;
+
+}
+
+.displayCartTotal span {
+  margin: 1rem;
+}
+
+/* selectors */
 
 .selectors {
   float: left;
   padding-left: 6px;
-  margin-right: 1rem;
+  margin-right: 50px;
+  margin-left: 9px;
   width: 30%;
-  max-width: 420px;
+  max-width: 100px;
 
 }
 
@@ -69,6 +102,8 @@ html{
   margin-bottom: 1rem;
 }
 
+
+/* add to shoeList */
 .addBox{
   padding: 1rem;
   border: solid black 1px;
@@ -81,6 +116,12 @@ html{
   float:left;
   width: fit-content;
 }
+.addBox select {
+  margin-right: 6px;
+  padding: 3px;
+  width:90px;
+}
+
 .addBox input {
   margin-right: 6px;
   padding: 3px;
@@ -100,6 +141,7 @@ html{
 }
 
 
+/* display filtered shoelist/ display shoppingBasket */
 
 .displayFilteredShoes table, .displayBasket table{
   margin-left: 2rem;
@@ -127,75 +169,29 @@ padding: 1.5rem;
   width: 100%;
   /* height: px; */
   max-height: 232px;
-  max-width: 420px;
+  max-width: 350px;
   box-shadow: 0 2px 5px #ccc;
 }
 
 .basket-wrapper {
   width: 100%;
-  max-width: 420px;
+  max-width: 350px;
 
-  max-height: 180px;
+  max-height: 232px;
   position: relative;
   overflow-y: scroll;
 }
 
 .displayBasketlist{
-  margin: 1rem;
+  margin-left: 5rem;
 
-  width: 80%;
+  width: 70%;
   max-height: 100px;
+  max-width: 350px;
+
   font-size: small;
   border: solid black 1px;
   padding: 1rem;
   box-shadow: 0 2px 5px #ccc;
 
 }
-
-.heading{
-  width: 100%;
-
-}
-h1 {
-  float:left;
-  width: 100%;ss
-}
-
-.show{
-  display: block;
-}
-
-.displayCartTotals button{
-  width: 100px;
-  padding: 0.5rem;
-  margin: 1rem;
-
-}
-
-.displayCartTotal span {
-  margin: 1rem;
-}
-
-/* .displayCartTotals span{
-  padding-top: 10px;
-} */
-
-/* .cartDisplay{
-  height: 50px;
-  width:100px;
-  box-shadow: 0 2px 5px #ccc;
-
-} */
-
-/* .displayCartTotals { */
-  /* margin: 1rem; */
-/* //  margin-right: 10rem; */
-  /* width: 100%;
-  max-width: 350px;
-
-  max-height: 180px;
-  background-color: white;
-  box-shadow: 0 2px 5px #ccc;
-  float: left;
-
-} */
