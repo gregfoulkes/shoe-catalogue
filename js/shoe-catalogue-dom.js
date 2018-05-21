@@ -1,15 +1,14 @@
 //filter selection
 //var All = document.querySelector('.All')
-var brand = document.querySelector('.brandSelect');
-var color = document.querySelector('.colorSelect');
-var size = document.querySelector('.sizeSelect');
+var filterBrand = document.querySelector('.brandSelect');
+var filterColor = document.querySelector('.colorSelect');
+var filterSize = document.querySelector('.sizeSelect');
 
 //display elements
 var displayBrand = document.querySelector('.displayBrand')
 var displayQty = document.querySelector('.displayQty');
 var displayFilter = document.querySelector('.displayFilter');
 var displaySize = document.querySelector('.displaySize');
-
 var displayColor = document.querySelector('.displayColor')
 
 //add elements
@@ -28,25 +27,19 @@ var clearBasketBtn = document.querySelector('.clearBasketBtn')
 // shoeFiltertemplate
 
 var shoeFilterTemplateSource = document.querySelector(".displayFilterTemplate").innerHTML;
-
 var shoeFilterTemplate = Handlebars.compile(shoeFilterTemplateSource);
-
 var insertRegDataElem = document.querySelector(".displayShoelist");
 
 //shoeBasketTemplate
 
 var shoeBasketTemplateSource = document.querySelector('.displaylBasketTemplate').innerHTML;
-
 var shoeBasketTemplate = Handlebars.compile(shoeBasketTemplateSource);
-
 var insertBasketDataElem = document.querySelector(".displayBasketList");
 
 // cartDisplayTemplate
 
 var shoeCartTemplateSource = document.querySelector('.cartDisplayTemplate').innerHTML;
-
 var shoeCartTemplate = Handlebars.compile(shoeCartTemplateSource);
-
 var insertCartDataElem = document.querySelector(".displayCartTotals");
 
 //localStorage
@@ -111,19 +104,18 @@ function getId(id){
     }
 
 
-  if(color.value !== ''){
-     params.color =  color.value
+  if(filterColor.value !== ''){
+     params.color =  filterColor.value
   }
 
-  if(brand.value !== ''){
-    params.brand = brand.value
+  if(filterBrand.value !== ''){
+    params.brand = filterBrand.value
   }
 
-  if(size.value !== ''){
-    params.size = size.value;
+  if(filterSize.value !== ''){
+    params.size = parseInt(filterSize.value);
   }
 
-  console.log(params.size)
 
   var shoeList = callFunction.filter(params)
 
@@ -138,4 +130,11 @@ listDisplay()
 
 addBtn.addEventListener('click', function(){
 callFunction.add(getColor.value, getBrand.value, getSize.value, getPrice.value, getQty.value)
+
+var shoeList = callFunction.shoe()
+insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList: shoeList });
+localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()))
+
+alert('Successfully added to shoe catalogue')
+location.reload()
 });

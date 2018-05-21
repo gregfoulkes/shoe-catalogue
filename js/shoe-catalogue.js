@@ -1,6 +1,6 @@
 function ShoeCatalogueFunction(storedShoes, basket) {
 
-  var shoes = [
+  var shoes = storedShoes || [
 
           {id: 1, color : 'blue', brand : "Nike",price : 350, size:8, in_stock : 5},
           {id: 2,color : 'blue', brand : "Adidas",price : 275, size:6, in_stock : 3},
@@ -34,6 +34,7 @@ function ShoeCatalogueFunction(storedShoes, basket) {
 
   ];
 
+var filteredShoes = []
   var shoppingBasket = basket || [];
 
   var basketTotal = 0
@@ -54,7 +55,7 @@ function ShoeCatalogueFunction(storedShoes, basket) {
 
 
   function shoeCatalogueFilter(params) {
-
+    filteredShoes = _.filter(shoes,params);
     return _.filter(shoes,params);
   }
 
@@ -168,6 +169,10 @@ function ShoeCatalogueFunction(storedShoes, basket) {
     return shoppingBasket
   }
 
+  // function getFilteredShoes(){
+  // return  filteredShoes
+  // }
+
   function shoeList() {
     return shoes
   }
@@ -181,7 +186,8 @@ function ShoeCatalogueFunction(storedShoes, basket) {
     total: totalCart,
     cartLength: returnCartLength,
     clearBasket: clearShoppingBasket,
-    basketTotal: returnBasketTotal
+    basketTotal: returnBasketTotal,
+    //getFiltered: getFilteredShoes,
   }
 
   }
