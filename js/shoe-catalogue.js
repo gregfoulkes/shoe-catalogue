@@ -1,6 +1,6 @@
 function ShoeCatalogueFunction(storedShoes, basket) {
 
-  var shoes = storedShoes || [
+  var shoes =  [
 
           {id: 1, color : 'blue', brand : "Nike",price : 350, size:8, in_stock : 5},
           {id: 2,color : 'blue', brand : "Adidas",price : 275, size:6, in_stock : 3},
