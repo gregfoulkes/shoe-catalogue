@@ -1,4 +1,5 @@
 //filter selection
+//var All = document.querySelector('.All')
 var brand = document.querySelector('.brandSelect');
 var color = document.querySelector('.colorSelect');
 var size = document.querySelector('.sizeSelect');
@@ -21,7 +22,8 @@ var getQty = document.querySelector('.getQty');
 //buttons
 var addBtn = document.querySelector('.addButton');
 var searchBtn = document.querySelector('.filterButton');
-var addToCart = document.querySelector('.addToCartBtn')
+var addToCart = document.querySelector('.addToCartBtn');
+var clearBasketBtn = document.querySelector('.clearBasketBtn')
 
 // shoeFiltertemplate
 
@@ -82,11 +84,13 @@ function getId(id){
 
     }
 
-    function clear() {
+    function clearBasket() {
       callFunction.clearBasket();
       localStorage.setItem('shoeList', JSON.stringify(callFunction.returnBasket()));
       localStorage.removeItem('basket');
       // force reload to update
+      listDisplay()
+
       basketDisplay();
     }
 
@@ -106,6 +110,7 @@ function getId(id){
     var params = {
     }
 
+
   if(color.value !== ''){
      params.color =  color.value
   }
@@ -124,7 +129,7 @@ function getId(id){
 
   insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList:shoeList});
 
-  }
+}
 
 searchBtn.addEventListener('click', function(){
 listDisplay()

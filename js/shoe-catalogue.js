@@ -55,7 +55,7 @@ function ShoeCatalogueFunction(storedShoes, basket) {
 
   function shoeCatalogueFilter(params) {
 
-    return _.filter(shoes, params);
+    return _.filter(shoes,params);
   }
 
   function addShoeToList(color, brand, size, price, in_stock) {
@@ -90,13 +90,15 @@ function ShoeCatalogueFunction(storedShoes, basket) {
     var itExists = false;
     var item = shoes.find(shoeId => (shoeId.id == id));
 
+
+
     if (item.in_stock > 0) {
 
       shoppingBasket.map(current => {
 
         if (current.id == id) {
           current.qty += 1;
-        //  basketTotal = current.qty * current.price
+          //  basketTotal = current.qty * current.price
           itExists = true;
 
         }
@@ -125,38 +127,38 @@ function ShoeCatalogueFunction(storedShoes, basket) {
         }
       });
 
-       return true
+      return true
     }
     return false
   }
 
-  function totalCart(){
+  function totalCart() {
     let subTotal = 0
-    if(shoppingBasket){
+    if (shoppingBasket) {
       subTotal = shoppingBasket.reduce((total, current) => (total + (current.price * current.qty)), 0)
     }
     return basketTotal + subTotal
   }
 
   function clearShoppingBasket() {
-       for (let i = 0; i < shoes.length; i++) {
-           // temp vars
-           let current = shoes[i];
-           let matchedShoe = shoppingBasket.find(shoe => (shoe.id == current.id));
-           // replace product
-           if (matchedShoe) {
-               current.in_stock += matchedShoe.qty;
+    for (let i = 0; i < shoes.length; i++) {
+      // temp vars
+      let current = shoes[i];
+      let matchedShoe = shoppingBasket.find(shoe => (shoe.id == current.id));
+      // replace product
+      if (matchedShoe) {
+        current.in_stock += matchedShoe.qty;
 
-           }
-       }
-      basketTotal = 0.00;
-      shoppingBasket = [];
-   }
+      }
+    }
+    basketTotal = 0.00;
+    shoppingBasket = [];
+  }
 
 
-   function returnBasketTotal() {
+  function returnBasketTotal() {
     return basketTotal
-   }
+  }
 
   function returnCartLength() {
     return shoppingBasket.length

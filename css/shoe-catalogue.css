@@ -74,12 +74,11 @@ h1 {
 .displayCartTotals button{
   width: 100px;
   padding: 0.5rem;
-  margin: 1rem;
 
 }
 
 .displayCartTotal span {
-  margin: 1rem;
+  margin-right: 1rem;
 }
 
 /* selectors */
@@ -193,5 +192,47 @@ padding: 1.5rem;
   border: solid black 1px;
   padding: 1rem;
   box-shadow: 0 2px 5px #ccc;
+
+}
+
+.cartDisplayTemplate {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+}
+
+@media (max-width: 700px) {
+
+  .selectors select {
+    width: 90%;
+    padding:20px;
+    float: left;
+  }
+
+
+  .selectors {
+    float: left;
+    padding-left: 6px;
+    margin-right: 50px;
+    margin-left: 9px;
+    width: 100%;
+    /* max-width: 100px; */
+
+  }
+
+  .row {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+  .addBox button{
+    /* float: left; */
+    width: 100%;
+    padding: 0.5rem;
+    margin-left: 1.5rem;
+  }
+
 
 }
