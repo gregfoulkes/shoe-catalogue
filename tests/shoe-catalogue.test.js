@@ -37,7 +37,11 @@ describe('Add to list function for shoe-catalogue', function() {
 
     var callFunction = ShoeCatalogueFunction();
 
-    assert.deepEqual(callFunction.add('orange', 'Puma', 7, 300, 1), [
+    callFunction.add('white', 'Nike', 7, 300, 10)
+    callFunction.add('white', 'Nike', 7, 300, 10)
+    console.log(callFunction.shoe())
+
+    assert.deepEqual(callFunction.shoe(), [
 
             {id: 1, color : 'blue', brand : "Nike",price : 350, size:8, in_stock : 5},
             {id: 2, color : 'blue', brand : "Adidas",price : 275, size:6, in_stock : 3},
@@ -68,7 +72,9 @@ describe('Add to list function for shoe-catalogue', function() {
             {id: 23, color : 'white', brand : "New Balance",price : 320, size:8, in_stock : 3},
             {id: 24, color : 'white', brand : "LaCoste",price : 400, size:4, in_stock : 5},
             {id: 25, color : 'white', brand : "All Stars",price : 250, size:9, in_stock : 1},
-            {id: 26, color : 'orange', brand : "Puma",price : 300, size:7, in_stock : 1}
+            {id: 26, color : 'white', brand : "Nike",price : 300, size:7, in_stock : 20}
+
+            // {id: 26, color : 'orange', brand : "Puma",price : 300, size:7, in_stock : 1}
 
     ]);
 

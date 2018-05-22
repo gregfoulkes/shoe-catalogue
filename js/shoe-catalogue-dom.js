@@ -129,12 +129,17 @@ listDisplay()
 });
 
 addBtn.addEventListener('click', function(){
-callFunction.add(getColor.value, getBrand.value, getSize.value, getPrice.value, getQty.value)
+callFunction.add(getColor.value,
+                getBrand.value,
+                getSize.value,
+                getPrice.value,
+                getQty.value)
+
 
 var shoeList = callFunction.shoe()
 insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList: shoeList });
 localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()))
-
+console.log(shoeList)
 alert('Successfully added to shoe catalogue')
-location.reload()
+//location.reload()
 });
