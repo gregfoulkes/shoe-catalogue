@@ -33,7 +33,7 @@ var shoes = [
 ];
 
 describe('Add to list function for shoe-catalogue', function() {
-  it('Should add orange Puma size 7 to list', function() {
+  it('Should add white, Nike, size 7 qty 10 to shoelist and then only increment in_stock by another 10 when called again', function() {
 
     var callFunction = ShoeCatalogueFunction();
 
@@ -121,48 +121,7 @@ describe('Add to list function for shoe-catalogue', function() {
 
   });
 
-  it('Should decrease the shoe list quantity of added shoes in stock', function() {
-    var callFunction = ShoeCatalogueFunction()
 
-      callFunction.addBasket(25)
-      //{color : 'white', brand : "All Stars",price : 250, size:9, in_stock : 1}
-
-    assert.deepEqual(callFunction.shoe(),shoes = [
-
-            {id: 1, color : 'blue', brand : "Nike",price : 350, size:8, in_stock : 5},
-            {id: 2, color : 'blue', brand : "Adidas",price : 275, size:6, in_stock : 3},
-            {id: 3, color : 'blue', brand : "New Balance",price : 320, size:4, in_stock : 7},
-            {id: 4, color : 'blue', brand : "LaCoste",price : 400, size:8, in_stock : 4},
-            {id: 5, color : 'blue', brand : "All Stars",price : 250, size:7, in_stock : 5},
-
-            {id: 6, color : 'red', brand : "Nike",price : 350,  size:7, in_stock : 9},
-            {id: 7, color : 'red', brand : "Adidas",price : 275, size:4, in_stock : 3},
-            {id: 8, color : 'red', brand : "New Balance",price : 320, size:6, in_stock : 2},
-            {id: 9, color : 'red', brand : "LaCoste",price : 400, size:5, in_stock : 9},
-            {id: 10, color : 'red', brand : "All Stars",price : 250, size:9, in_stock : 6},
-
-            {id: 11, color : 'green', brand : "Nike",price : 350, size:5, in_stock : 1},
-            {id: 12, color : 'green', brand : "Adidas",price : 275, size:4, in_stock : 9},
-            {id: 13, color : 'green', brand : "New Balance",price : 320, size:8, in_stock : 3},
-            {id: 14, color : 'green', brand : "LaCoste",price : 400, size:6, in_stock : 7},
-            {id: 15, color : 'green', brand : "All Stars",price : 250, size:8, in_stock : 8},
-
-            {id: 16, color : 'black', brand : "Nike",price : 350, size:7, in_stock : 8},
-            {id: 17, color : 'black', brand : "Adidas",price : 275, size:4, in_stock : 2},
-            {id: 18, color : 'black', brand : "New Balance",price : 320, size:8, in_stock : 4},
-            {id: 19, color : 'black', brand : "LaCoste",price : 400, size:6, in_stock : 2},
-            {id: 20, color : 'black', brand : "All Stars",price : 250, size:5, in_stock : 6},
-
-            {id: 21, color : 'white', brand : "Nike",price : 350, size:4, in_stock : 7},
-            {id: 22, color : 'white', brand : "Adidas",price : 275, size:6, in_stock : 6},
-            {id: 23, color : 'white', brand : "New Balance",price : 320, size:8, in_stock : 3},
-            {id: 24, color : 'white', brand : "LaCoste",price : 400, size:4, in_stock : 5},
-            {id: 25, color : 'white', brand : "All Stars",price : 250, size:9, in_stock : 0},
-
-    ]);
-
-
-  });
 });
 
 describe('Filter function', function() {
@@ -346,6 +305,49 @@ describe('Add to Shopping Basket function', function() {
 
   });
 
+  it('Should decrease the shoe list quantity of added shoes in stock', function() {
+    var callFunction = ShoeCatalogueFunction()
+
+      callFunction.addBasket(25)
+      //{color : 'white', brand : "All Stars",price : 250, size:9, in_stock : 1}
+
+    assert.deepEqual(callFunction.shoe(),shoes = [
+
+            {id: 1, color : 'blue', brand : "Nike",price : 350, size:8, in_stock : 5},
+            {id: 2, color : 'blue', brand : "Adidas",price : 275, size:6, in_stock : 3},
+            {id: 3, color : 'blue', brand : "New Balance",price : 320, size:4, in_stock : 7},
+            {id: 4, color : 'blue', brand : "LaCoste",price : 400, size:8, in_stock : 4},
+            {id: 5, color : 'blue', brand : "All Stars",price : 250, size:7, in_stock : 5},
+
+            {id: 6, color : 'red', brand : "Nike",price : 350,  size:7, in_stock : 9},
+            {id: 7, color : 'red', brand : "Adidas",price : 275, size:4, in_stock : 3},
+            {id: 8, color : 'red', brand : "New Balance",price : 320, size:6, in_stock : 2},
+            {id: 9, color : 'red', brand : "LaCoste",price : 400, size:5, in_stock : 9},
+            {id: 10, color : 'red', brand : "All Stars",price : 250, size:9, in_stock : 6},
+
+            {id: 11, color : 'green', brand : "Nike",price : 350, size:5, in_stock : 1},
+            {id: 12, color : 'green', brand : "Adidas",price : 275, size:4, in_stock : 9},
+            {id: 13, color : 'green', brand : "New Balance",price : 320, size:8, in_stock : 3},
+            {id: 14, color : 'green', brand : "LaCoste",price : 400, size:6, in_stock : 7},
+            {id: 15, color : 'green', brand : "All Stars",price : 250, size:8, in_stock : 8},
+
+            {id: 16, color : 'black', brand : "Nike",price : 350, size:7, in_stock : 8},
+            {id: 17, color : 'black', brand : "Adidas",price : 275, size:4, in_stock : 2},
+            {id: 18, color : 'black', brand : "New Balance",price : 320, size:8, in_stock : 4},
+            {id: 19, color : 'black', brand : "LaCoste",price : 400, size:6, in_stock : 2},
+            {id: 20, color : 'black', brand : "All Stars",price : 250, size:5, in_stock : 6},
+
+            {id: 21, color : 'white', brand : "Nike",price : 350, size:4, in_stock : 7},
+            {id: 22, color : 'white', brand : "Adidas",price : 275, size:6, in_stock : 6},
+            {id: 23, color : 'white', brand : "New Balance",price : 320, size:8, in_stock : 3},
+            {id: 24, color : 'white', brand : "LaCoste",price : 400, size:4, in_stock : 5},
+            {id: 25, color : 'white', brand : "All Stars",price : 250, size:9, in_stock : 0},
+
+    ]);
+
+
+  });
+
 });
 
 describe('Add function check matching items', function(){
@@ -370,50 +372,50 @@ describe('Add function check matching items', function(){
 
 });
 
-describe('checkBasketlength', function() {
-
-  it('Should return cart length of 3', function() {
-    var callFunction = ShoeCatalogueFunction()
-
-    callFunction.addBasket(2)
-    callFunction.addBasket(7)
-    callFunction.addBasket(17)
-    callFunction.addBasket(17)
-
-    assert.equal(callFunction.cartLength(), 3)
-
-  });
-
-  it('Should return cart length of when 2 ', function() {
-    var callFunction = ShoeCatalogueFunction()
-
-    callFunction.addBasket(16)
-    callFunction.addBasket(17)
-
-    assert.equal(callFunction.cartLength(), 2)
-
-  });
-
-
-  it('Should return cart length of 1', function() {
-    var callFunction = ShoeCatalogueFunction()
-
-    callFunction.addBasket(2)
-
-    assert.equal(callFunction.cartLength(), 1)
-
-  });
-
-  it('Should return cart length of when 2 of the same items added to cart', function() {
-    var callFunction = ShoeCatalogueFunction()
-
-    callFunction.addBasket(17)
-    callFunction.addBasket(17)
-
-    assert.equal(callFunction.cartLength(), 1)
-
-    });
-  });
+// describe('checkBasketlength', function() {
+//
+//   it('Should return cart length of 3', function() {
+//     var callFunction = ShoeCatalogueFunction()
+//
+//     callFunction.addBasket(2)
+//     callFunction.addBasket(7)
+//     callFunction.addBasket(17)
+//     callFunction.addBasket(17)
+//
+//     assert.equal(callFunction.cartLength(), 3)
+//
+//   });
+//
+//   it('Should return cart length of when 2 ', function() {
+//     var callFunction = ShoeCatalogueFunction()
+//
+//     callFunction.addBasket(16)
+//     callFunction.addBasket(17)
+//
+//     assert.equal(callFunction.cartLength(), 2)
+//
+//   });
+//
+//
+//   it('Should return cart length of 1', function() {
+//     var callFunction = ShoeCatalogueFunction()
+//
+//     callFunction.addBasket(2)
+//
+//     assert.equal(callFunction.cartLength(), 1)
+//
+//   });
+//
+//   it('Should return cart length of when 2 of the same items added to cart', function() {
+//     var callFunction = ShoeCatalogueFunction()
+//
+//     callFunction.addBasket(17)
+//     callFunction.addBasket(17)
+//
+//     assert.equal(callFunction.cartLength(), 1)
+//
+//     });
+//   });
 
 describe('check for zero Qty', function() {
 

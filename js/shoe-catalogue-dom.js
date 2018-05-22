@@ -137,8 +137,9 @@ callFunction.add(getColor.value,
 
 
 var shoeList = callFunction.shoe()
-insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList: shoeList });
 localStorage.setItem('shoeList', JSON.stringify(callFunction.shoe()))
+
+insertRegDataElem.innerHTML = shoeFilterTemplate({shoeList: shoeList });
 console.log(shoeList)
 alert('Successfully added to shoe catalogue')
 //location.reload()
